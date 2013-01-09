@@ -618,7 +618,7 @@ WHERE max.user_id = val.user_id
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>phone_day</incoming_field_name>
+         <incoming_field_name>phone_number</incoming_field_name>
 
          <mongo_doc_path/>
 
@@ -630,7 +630,7 @@ WHERE max.user_id = val.user_id
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>birthday</incoming_field_name>
+         <incoming_field_name>date_of_birth</incoming_field_name>
 
          <mongo_doc_path/>
 
@@ -810,11 +810,11 @@ WHERE max.user_id = val.user_id
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>phone_day</name>
-        <rename/>
+        <rename>phone_number</rename>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>birthday</name>
-        <rename/>
+        <rename>date_of_birth</rename>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>us_citizen</name>
@@ -850,7 +850,7 @@ WHERE max.user_id = val.user_id
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>id</name>
-        <rename>member_id</rename>
+        <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>updates_and_tips</name>
@@ -862,11 +862,47 @@ WHERE max.user_id = val.user_id
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>MDB_gender</name>
-        <rename>gender</rename>
+        <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
+      <meta>        <name>MDB_gender</name>
+        <rename>gender</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>legally_can_work_in_usa</name>
+        <rename>legally_can_work_in_usa</rename>
+        <type>Boolean</type>
+        <length>3</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>id</name>
+        <rename>member_id</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>#</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>896</xloc>
       <yloc>390</yloc>
@@ -891,15 +927,15 @@ WHERE max.user_id = val.user_id
 <value_precision>-1</value_precision>
 <replace_field/>
 </formula>
-       <formula><field_name>MDB_gender</field_name>
-<formula_string>IF([gender]=&quot;Y&quot;;&quot;True&quot;;&quot;False&quot;)</formula_string>
+       <formula><field_name>legally_can_work_in_usa</field_name>
+<formula_string>IF([us_citizen]=&quot;Y&quot;;&quot;true&quot;;&quot;false&quot;)</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
 <replace_field/>
 </formula>
-       <formula><field_name>legally_can_work_in_usa</field_name>
-<formula_string>IF([us_citizen]=&quot;M&quot;;&quot;Male&quot;;IF([us_citizen]=&quot;F&quot;;&quot;Female&quot;;[us_citizen]))</formula_string>
+       <formula><field_name>MDB_gender</field_name>
+<formula_string>IF([gender]=&quot;M&quot;;&quot;Male&quot;;IF([gender]=&quot;F&quot;;&quot;Female&quot;;[gender]))</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
